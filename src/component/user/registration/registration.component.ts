@@ -16,18 +16,12 @@ export class RegistrationComponent {
 
   ngOnInit() {
     this.registrationForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      user_name: ['', Validators.required],
+      userGroup: ['',Validators.required],
+      mobile_number:['',Validators.required],
+      emailId: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', [Validators.required, this.confirmPasswordValidator.bind(this)]]
     });
-  }
-
-  confirmPasswordValidator(control: FormGroup) {
-    if (control.get('password')?.value !== control.get('confirmPassword')?.value) {
-      return { passwordsDoNotMatch: true };
-    }
-    return null;
   }
 
   onSubmit() {

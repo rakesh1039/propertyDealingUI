@@ -1,7 +1,7 @@
 <mat-card>
     <mat-card-title>Registration</mat-card-title>
     <mat-card-content>
-        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="registrationForm">
             <div class="row">
                 <div class="col-md-4">
                     <mat-form-field>
@@ -11,7 +11,7 @@
                             Name is required
                         </mat-error>
                     </mat-form-field>
-                </div>
+                </div> 
                 <div class="col-md-4">
                     <mat-form-field>
                         <input matInput type="text" formControlName="userGroup" placeholder="User/Dealer">
@@ -55,7 +55,7 @@
 
             <div class="row">
                 <button mat-raised-button color="primary" type="submit"
-                    [disabled]="registrationForm.invalid">Register</button>
+                    [disabled]="registrationForm.invalid" (click)="save()">Register</button>
             </div>
         </form>
     </mat-card-content>

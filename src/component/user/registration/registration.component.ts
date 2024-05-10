@@ -20,22 +20,29 @@ export class RegistrationComponent {
 
   ngOnInit() {
     this.registrationForm = this.fb.group({
-      user_name: ['', Validators.required],
+      userName: ['', Validators.required],
       userGroup: ['',Validators.required],
-      mobile_number:['',Validators.required],
+      mobileNumber:['',Validators.required],
       emailId: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
+  /**
+    *  This will submit the registration form
+    */
   save() {
     const payLoad = this.registrationForm.value;
+    const emailId = payLoad.emailId;
     this._userService.registerUser(payLoad).subscribe({
-      next: (response) =>{
-        console.log('User is successfully registered!');
-        this._router.navigate(['/signin']);
+      next: (response: any) =>{
+        if(response) {
+          console.log('User is successfully registered!');
+          this._router.navigate(['/signin']);
+        }
+        console.log('User is already registered with this Id ', emailId, ',please try with different Id');
       },
-      error: (err) => {
+      error: (err: any) => {
         console.log('User is not registered, please try again!');
       }
     })

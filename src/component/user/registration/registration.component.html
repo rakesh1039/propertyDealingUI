@@ -5,9 +5,9 @@
             <div class="row">
                 <div class="col-md-4">
                     <mat-form-field>
-                        <input matInput type="text" formControlName="user_name" placeholder="Name">
+                        <input matInput type="text" formControlName="userName" placeholder="Name">
                         <mat-error
-                            *ngIf="registrationForm?.get('user_name')?.touched && registrationForm?.get('user_name')?.invalid">
+                            *ngIf="registrationForm?.get('userName')?.touched && registrationForm?.get('userName')?.invalid">
                             Name is required
                         </mat-error>
                     </mat-form-field>
@@ -23,9 +23,9 @@
                 </div> 
                 <div class="col-md-4">
                     <mat-form-field>
-                        <input matInput type="text" formControlName="mobile_number" placeholder="Mobile Number">
+                        <input matInput type="text" formControlName="mobileNumber" placeholder="Mobile Number">
                         <mat-error
-                            *ngIf="registrationForm?.get('mobile_number')?.touched && registrationForm?.get('mobile_number')?.invalid">
+                            *ngIf="registrationForm?.get('mobileNumber')?.touched && registrationForm?.get('mobileNumber')?.invalid">
                             Invalid email format
                         </mat-error>
                     </mat-form-field>

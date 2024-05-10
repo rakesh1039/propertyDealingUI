@@ -12,10 +12,10 @@ export class UserService {
   ) { }
   
   public registerUser(requestBody: any) {
-    return this.httpClient.post<any>(this.path + `user`,requestBody);
+    return this.httpClient.post<any>(this.path + `register`,requestBody);
   }
   
   public userLogin(requestBody: any) {
-    return this.httpClient.post<any>(this.path + `login`, requestBody);
+    return this.httpClient.post<any>(this.path + `signin`, requestBody);
   }
 }

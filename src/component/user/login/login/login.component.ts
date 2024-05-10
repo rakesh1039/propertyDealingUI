@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SharedService } from 'src/service/shared.service';
 import { UserService } from 'src/service/user.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class LoginComponent {
   
   constructor(
     private fb: FormBuilder,
-    private _userService: UserService
+    private _userService: UserService,
+    private _sharedService: SharedService
   ) {}
   
   ngOnInit() {
@@ -36,6 +38,7 @@ export class LoginComponent {
         } else if(message === 'Password does not match') {
           console.log('Please enter a valid password!');
         } else {
+          this._sharedService.openSuccessSnackBar('Successfully logged in','');
           console.log('Logged in successfull!');
         }
         console.log('Response is: ', response);

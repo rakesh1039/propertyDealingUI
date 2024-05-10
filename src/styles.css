@@ -2,3 +2,31 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.success-snackbar {
+    font-size: larger;
+    color: black;
+    background-color: green;
+    border: 1px solid rgba(0,122,82,0.5);
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: border-radius-big;
+}
+
+.success-snackbar .mat-simple-snackbar-action {
+    color: black;
+}
+
+.error-snackbar {
+    font-size: larger;
+    color: black;
+    background-color: red;
+    border: 1px solid rgba(204,41,0,0.5);
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: border-radius-big;
+}
+
+.error-snackbar .mat-simple-snackbar-action {
+    color: black;
+}

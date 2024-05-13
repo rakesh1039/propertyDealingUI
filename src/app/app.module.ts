@@ -14,12 +14,14 @@ import { LoginComponent } from 'src/component/user/login/login/login.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HomeComponent } from 'src/component/home/home/home.component';
 import { MatDialogModule } from '@angular/material/dialog'
+import { FooterComponent } from 'src/component/footer/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,8 @@
 
 .bg-light {
     background-color: rgb(96, 96, 223) !important;
+    width: 100% !important;
+    position: fixed;
 }
 
 .navbar-brand.active,

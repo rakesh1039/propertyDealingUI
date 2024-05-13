@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { SharedService } from 'src/service/shared.service';
 import { UserService } from 'src/service/user.service';
 
@@ -15,7 +16,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private _userService: UserService,
-    private _sharedService: SharedService
+    private _sharedService: SharedService,
+    private matDialog: MatDialogRef<LoginComponent>
   ) {}
   
   ngOnInit() {
@@ -34,18 +36,23 @@ export class LoginComponent {
       next: (response: any) => {
         const message = response.message
         if(message === 'User does not exist') {
-          console.log('User is not registered, please register first!');
+          this._sharedService.openErrorSnackBar('User is not registered, please register first!', ' ');
         } else if(message === 'Password does not match') {
-          console.log('Please enter a valid password!');
+          this._sharedService.openErrorSnackBar('Please enter a valid password!', ' ');
         } else {
           this._sharedService.openSuccessSnackBar('Successfully logged in','');
-          console.log('Logged in successfull!');
         }
-        console.log('Response is: ', response);
       },
       error: (err: any) => {
-        console.log('Login failed, please try again!');
+        this._sharedService.openErrorSnackBar('Login failed, please try again in sometime!', ' ');
       }
     })
+  }
+  
+  /**
+   * It will close the dialog box.
+   */
+  cancel() {
+    this.matDialog.close();
   }
 }

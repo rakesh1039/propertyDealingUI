@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { SharedService } from 'src/service/shared.service';
 import { UserService } from 'src/service/user.service';
+import { LoginComponent } from '../login/login/login.component';
 
 @Component({
   selector: 'app-registration',
@@ -15,7 +18,10 @@ export class RegistrationComponent {
   constructor(
     private fb: FormBuilder,
     private _userService: UserService,
-    private _router: Router
+    private _router: Router,
+    private _sharedService: SharedService,
+    public dialogRef: MatDialog,
+    private matDialog: MatDialogRef<RegistrationComponent>
   ) { }
 
   ngOnInit() {
@@ -37,14 +43,27 @@ export class RegistrationComponent {
     this._userService.registerUser(payLoad).subscribe({
       next: (response: any) =>{
         if(response) {
-          console.log('User is successfully registered!');
-          this._router.navigate(['/signin']);
+          this._sharedService.openSuccessSnackBar('User is successfully registered!', ' ');
+          this.matDialog.close();
+          const dialogRef = this.dialogRef.open(LoginComponent, {
+            width: '600px',
+            disableClose: true
+          })
+          // this._router.navigate(['/signin']);
+        } else {
+          this._sharedService.openErrorSnackBar('User is already registered with this Id, please try with different Id!', ' ');
         }
-        console.log('User is already registered with this Id ', emailId, ',please try with different Id');
       },
       error: (err: any) => {
-        console.log('User is not registered, please try again!');
+        this._sharedService.openErrorSnackBar('User is not registered, please try again!', ' ');
       }
     })
+  }
+  
+  /**
+   * It will close the dialog box.
+   */
+  cancel() {
+   this.matDialog.close(); 
   }
 }

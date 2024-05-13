@@ -1,10 +1,10 @@
 <mat-card>
-    <mat-card-title>Registration</mat-card-title>
+    <mat-card-title class="mat-title">Please fill your deatils for Signup</mat-card-title>
     <mat-card-content>
         <form [formGroup]="registrationForm">
             <div class="row">
                 <div class="col-md-4">
-                    <mat-form-field>
+                    <mat-form-field class="full-width" appearance="outline">
                         <input matInput type="text" formControlName="userName" placeholder="Name">
                         <mat-error
                             *ngIf="registrationForm?.get('userName')?.touched && registrationForm?.get('userName')?.invalid">
@@ -13,7 +13,7 @@
                     </mat-form-field>
                 </div> 
                 <div class="col-md-4">
-                    <mat-form-field>
+                    <mat-form-field class="full-width" appearance="outline">
                         <input matInput type="text" formControlName="userGroup" placeholder="User/Dealer">
                         <mat-error
                             *ngIf="registrationForm?.get('userGroup')?.touched && registrationForm?.get('userGroup')?.invalid">
@@ -22,7 +22,7 @@
                     </mat-form-field>
                 </div> 
                 <div class="col-md-4">
-                    <mat-form-field>
+                    <mat-form-field class="full-width" appearance="outline">
                         <input matInput type="text" formControlName="mobileNumber" placeholder="Mobile Number">
                         <mat-error
                             *ngIf="registrationForm?.get('mobileNumber')?.touched && registrationForm?.get('mobileNumber')?.invalid">
@@ -34,7 +34,7 @@
 
             <div class="row">
                 <div class="col-md-4">
-                    <mat-form-field>
+                    <mat-form-field class="full-width" appearance="outline">
                         <input matInput type="email" formControlName="emailId" placeholder="Email">
                         <mat-error
                             *ngIf="registrationForm?.get('emailId')?.touched && registrationForm?.get('emailId')?.invalid">
@@ -43,7 +43,7 @@
                     </mat-form-field>
                 </div>
                 <div class="col-md-4">
-                    <mat-form-field>
+                    <mat-form-field class="full-width" appearance="outline">
                         <input matInput type="password" formControlName="password" placeholder="Password">
                         <mat-error
                             *ngIf="registrationForm?.get('password')?.touched && registrationForm?.get('password')?.invalid">
@@ -53,9 +53,19 @@
                 </div>
             </div>
 
-            <div class="row">
-                <button mat-raised-button color="primary" type="submit"
-                    [disabled]="registrationForm.invalid" (click)="save()">Register</button>
+            <div class="row justify-content-end">
+                <div class="col-md-2">
+                    <button class="full-width" mat-raised-button color="primary" (click)="cancel()">
+                        Cancel
+                    </button>
+                </div>
+                <div class="col-md-2">
+                    <button class="full-width" mat-raised-button color="primary" type="submit"
+                        [disabled]="registrationForm.invalid" (click)="save()"
+                    >
+                        Register
+                    </button>
+                </div>
             </div>
         </form>
     </mat-card-content>

@@ -12,9 +12,12 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http'
 import { LoginComponent } from 'src/component/user/login/login/login.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HomeComponent } from 'src/component/home/home/home.component';
+import { MatDialogModule } from '@angular/material/dialog'
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     RegistrationComponent,
     LoginComponent
   ],
@@ -29,7 +32,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatInputModule,
     MatButtonModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

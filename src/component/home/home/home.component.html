@@ -1,0 +1,22 @@
+<header class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <!-- Home button on the left -->
+    <a class="navbar-brand" (click)="Home('home')" [class.active]="activeButton === 'home'">Home</a>
+    
+    <!-- Right-aligned buttons -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" (click)="Login('login')" [class.active]="activeButton === 'login'">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="SignUp('signup')" [class.active]="activeButton === 'signup'">SignUp</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="background-image">
+  <img src="assets/img1.png" alt="">
+</div>
